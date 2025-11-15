@@ -3,7 +3,6 @@ package COR.Logger;
 public abstract class LoggerManager {
     
     LoggerManager loggerManager;
-    LogEnum logEnum;
     
     LoggerManager(LoggerManager loggerManager)
     {
