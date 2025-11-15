@@ -41,7 +41,7 @@ public class DispenseInsertState implements States {
             System.out.println("Item is dispatched , please collect !!");
         }
         else if( sp.quantity <=0)
-        System.out.println("The quantity is not enough !!");
+        System.out.println("The machine quantity is not enough !!");
         else 
         {
             System.out.println("Insufficient funds : avaliable : "+vendingMachineContext.balance+" required : "+sp.price );

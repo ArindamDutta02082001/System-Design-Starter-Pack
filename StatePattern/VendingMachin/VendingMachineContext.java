@@ -4,7 +4,6 @@ import StatePattern.VendingMachin.inventory.Inventory;
 import StatePattern.VendingMachin.inventory.Product;
 import StatePattern.VendingMachin.states.DispenseInsertState;
 import StatePattern.VendingMachin.states.InsertCoinState;
-import StatePattern.VendingMachin.states.NoCoinInsertState;
 import StatePattern.VendingMachin.states.SelectState;
 import StatePattern.VendingMachin.states.States;
 
@@ -40,12 +39,12 @@ public class VendingMachineContext {
         inventory = new Inventory();
 
 
-        dispenseInsertState = new DispenseInsertState(this);
         insertCoinState = new InsertCoinState(this);
         selectState = new SelectState(this);
+        dispenseInsertState = new DispenseInsertState(this);
 
 
-        // setting the initial state
+        // setting the initial state  **vvi
         currState = insertCoinState;
 
     }
@@ -92,6 +91,15 @@ public class VendingMachineContext {
     public void dispenseItem()
     {
         currState.dispenseItem( this);
+    }
+
+
+
+    // utility fucntion to reset the context so that I can add multiple test cases in the main class
+    // else bar bar new VendingMachineContext() krna padega not a good practice
+    public void resetVendingMachineContext()
+    {
+        this.currState = insertCoinState;
     }
 
 

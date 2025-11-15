@@ -32,9 +32,12 @@ public class Main {
         vendingMachineContext.pressButtonToSelectItem("A1");
         vendingMachineContext.dispenseItem();
 
+        System.out.println("**************************Resetting the context...........................................");
+        vendingMachineContext.resetVendingMachineContext();
+
         // transaction 2
         vendingMachineContext.insertCoin(10);
-        vendingMachineContext.pressButtonToSelectItem("B2");
+        vendingMachineContext.pressButtonToSelectItem("B2");  // b2 chocolate price = 25 not possible
         vendingMachineContext.dispenseItem();
 
 
