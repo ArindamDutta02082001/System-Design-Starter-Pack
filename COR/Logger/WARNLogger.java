@@ -1,18 +1,21 @@
 package COR.Logger;
 
-public class WARNLogger extends LoggerManager {
+public class WARNLogger implements LoggerManager {
 
-    WARNLogger(LoggerManager loggerManager )
+    LoggerManager next = null ;     // this is doing the chaining to the next logger manager
+
+    WARNLogger( LoggerManager loggerManager)
     {
-        super(loggerManager);
+        this.next = loggerManager;
     }
 
-    @Override
-    public void print( LogEnum logEnum , String message)
+    public void print( LogEnum logEnum , String message )
     {
         if( logEnum == LogEnum.WARN)
-        System.out.println( "[WARN] "+message);
+            System.out.println( "[ERROR] "+message);
         else
-        super.print(logEnum, message);  // this is doing the chaining to the next logger manager
+            if(next != null)
+            next.print(logEnum, message);
+
     }
 }

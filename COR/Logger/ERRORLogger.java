@@ -1,18 +1,22 @@
 package COR.Logger;
 
-public class ERRORLogger extends LoggerManager {
-
-    ERRORLogger(LoggerManager loggerManager )
+public class ERRORLogger implements LoggerManager {
+   
+    LoggerManager next = null ;     // this is doing the chaining to the next logger manager
+    
+    ERRORLogger( LoggerManager loggerManager)
     {
-        super(loggerManager);
+        this.next = loggerManager;
     }
 
-    @Override
-    public void print( LogEnum logEnum , String message)
+    public void print( LogEnum logEnum , String message )
     {
         if( logEnum == LogEnum.ERROR)
-        System.out.println( "[ERROR] "+message);
+            System.out.println( "[ERROR] "+message);
         else
-        super.print(logEnum, message);  // this is doing the chaining to the next logger manager
+            if(next != null)
+            next.print(logEnum, message);
     }
-}
+
+
+ }

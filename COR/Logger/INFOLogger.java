@@ -1,18 +1,20 @@
 package COR.Logger;
 
-public class INFOLogger extends LoggerManager {
+public class INFOLogger implements LoggerManager {
 
-    INFOLogger(LoggerManager loggerManager )
+    LoggerManager next = null ;     // this is doing the chaining to the next logger manager
+
+    INFOLogger( LoggerManager loggerManager)
     {
-        super(loggerManager);
+        this.next = loggerManager;
     }
 
-    @Override
-    public void print( LogEnum logEnum , String message)
+    public void print( LogEnum logEnum , String message )
     {
         if( logEnum == LogEnum.INFO)
-        System.out.println( "[INFO] "+message);
+            System.out.println( "[INFO] "+message);
         else
-        super.print(logEnum, message);  // this is doing the chaining to the next logger manager
+            if(next != null)
+            next.print(logEnum, message);
     }
 }

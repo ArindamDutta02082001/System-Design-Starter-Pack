@@ -8,6 +8,7 @@ public class Main
 
         // creating a chain or responsibility --> this is important
         // checking will happen from ERROR -> WARN -> INFO
+
         LoggerManager loggerManager1 = new INFOLogger(null);
         LoggerManager loggerManager2 = new WARNLogger(loggerManager1);
         LoggerManager loggerManager3 = new ERRORLogger(loggerManager2);
