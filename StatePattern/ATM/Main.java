@@ -21,7 +21,6 @@ public class Main {
         a.setCard(card);
 
         // starting a txn
-
         a.enterCard();
         a.enterPinFn("1234");
         a.enterAmountFn(10000.0);

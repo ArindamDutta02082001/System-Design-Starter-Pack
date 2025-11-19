@@ -1,10 +1,14 @@
 package StatePattern.VendingMachin;
 
+import java.lang.Thread.State;
+
 import StatePattern.VendingMachin.inventory.Inventory;
 import StatePattern.VendingMachin.inventory.Product;
 import StatePattern.VendingMachin.states.DispenseInsertState;
 import StatePattern.VendingMachin.states.InsertCoinState;
 import StatePattern.VendingMachin.states.SelectState;
+import StatePattern.VendingMachin.states.StateEnum;
+import StatePattern.VendingMachin.states.StateFactory;
 import StatePattern.VendingMachin.states.States;
 
 public class VendingMachineContext {
@@ -17,12 +21,11 @@ public class VendingMachineContext {
     public int balance =0;
 
 
-    
-    // you will have to have all the states in the context
-
     public InsertCoinState insertCoinState;
     public SelectState selectState;
     public DispenseInsertState dispenseInsertState;
+
+    StateFactory stateFactory;
 
     // **vvi to store the current initial state in the State Pattern
     States currState;
@@ -38,10 +41,16 @@ public class VendingMachineContext {
 
         inventory = new Inventory();
 
+        stateFactory = new StateFactory(this);
+        
+        // // every time writing new new here is not acceptable in State Pattern , this part is moved to StateFactory class
+        // insertCoinState = new InsertCoinState(this);
+        // selectState = new SelectState(this);
+        // dispenseInsertState = new DispenseInsertState(this);
 
-        insertCoinState = new InsertCoinState(this);
-        selectState = new SelectState(this);
-        dispenseInsertState = new DispenseInsertState(this);
+        insertCoinState = (InsertCoinState) stateFactory.getState( StateEnum.INSERT_COIN_STATE );
+        selectState = (SelectState) stateFactory.getState( StateEnum.ITEM_SELECTED_STATE );
+        dispenseInsertState = (DispenseInsertState) stateFactory.getState( StateEnum.DISPENSE_ITEM_STATE);
 
 
         // setting the initial state  **vvi

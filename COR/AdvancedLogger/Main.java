@@ -17,6 +17,7 @@ public class Main
         // humesa use the last logger manager
         loggerManager3.print( LogEnum.ERROR , "This is a error message ");
         loggerManager3.print( LogEnum.INFO , "This is a info message ");
+        loggerManager3.print( LogEnum.DUMMY , "This is a dummy message , should not be printed ");
 
         
     }

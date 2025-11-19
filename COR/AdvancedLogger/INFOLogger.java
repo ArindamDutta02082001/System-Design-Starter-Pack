@@ -13,7 +13,8 @@ public class INFOLogger implements LoggerManager {
         if( logEnum == LogEnum.INFO)
             System.out.println( "[INFO] "+message);
         else
-            if(next != null)
-            next.print(logEnum, message);
+            // if(next != null)
+            // next.print(logEnum, message);   // aur aage nhi jayega
+            System.out.println(" Select appropriate level to print the log message ");
     }
 }

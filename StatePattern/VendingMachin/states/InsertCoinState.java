@@ -16,7 +16,7 @@ public class InsertCoinState implements States {
     {
         System.out.println(" Coin inserted successfully !! ");
         vendingMachineContext.balance += amount;
-        vendingMachineContext.setCurrState( vendingMachineContext.selectState );  // trnasferring the state
+        vendingMachineContext.setCurrState(vendingMachineContext.selectState);  // transferring the state
     }
 
     @Override

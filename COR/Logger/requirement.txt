@@ -1,0 +1,5 @@
+
+
+Logger lld
+
+- very basic ( 15 min implentation ) should be able to log 
