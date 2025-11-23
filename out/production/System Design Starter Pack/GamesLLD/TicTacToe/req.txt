@@ -1,0 +1,9 @@
+
+
+The game is played on a 3x3 grid ( extendable to NxN grid ) -- done
+Two players take alternate turns, identified by markers ‘X’ and ‘O’. -- done
+option to play between two human players or a human player against a computer AI.
+The game should detect and announce the winner. -- done
+The game should declare a draw if all cells are filled and no player has won.
+The game should reject invalid moves and inform the player.
+The system should maintain a scoreboard across multiple games and log the moves for each game into a log file.

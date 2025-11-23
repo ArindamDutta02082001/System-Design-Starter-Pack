@@ -13,7 +13,7 @@ public class Cart {
     private List<CartItem> cartItems;
     private double totalCartPrice;
 
-    Character
+//    Character
 
     public Cart(String cartId, String customerId, List<CartItem> cartItems, double totalCartPrice) {
         this.cartId = cartId;

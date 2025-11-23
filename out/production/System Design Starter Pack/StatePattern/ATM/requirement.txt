@@ -1,0 +1,15 @@
+
+
+ATM lld
+
+- User should enter card  details and a series of steps should happen : 
+        card insert , card validate , enter amount and amount dispense
+- User should be able to choose option : 
+        1. dispense cash 
+        2. view balace (before n after withrwal) 
+        3. View mini statement
+        4. deposit cash to other account ( new feature )
+- Txn logs should be saved
+- Cash of 500 , 200 , 100 only should be dispensed if not there then say "Enter amt in multiples of 500 , 100 , 200" , should be extendible for 
+    future additions
+- should have thread-safe nature
