@@ -1,7 +1,7 @@
 package GamesLLD.TicTacToe.strategy;
 
 import GamesLLD.TicTacToe.Board;
-import GamesLLD.TicTacToe.entity.Player;
+import GamesLLD.TicTacToe.entity.Player.Player;
 
 public class RowWinningStrategy implements WinningStrategy {
 

@@ -1,0 +1,14 @@
+
+
+enum to be there instead of Cell values
+why ??
+to restrict the possible values that a cell can take
+
+public enum Symbol {
+	  X, O, EMPTY
+	}
+
+
+good points
+  used strategy for win checking , highly extendable
+  used

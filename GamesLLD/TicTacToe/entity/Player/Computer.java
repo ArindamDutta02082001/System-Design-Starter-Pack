@@ -1,4 +1,4 @@
-package GamesLLD.TicTacToe.entity;
+package GamesLLD.TicTacToe.entity.Player;
 
 import GamesLLD.TicTacToe.Board;
 

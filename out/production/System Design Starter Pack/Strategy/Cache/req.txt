@@ -1,0 +1,18 @@
+type : [hard]
+ref : codewitharyan
+
+The key requirements are:
+
+A cache with configurable capacity.  -- done
+Implementation of write-through policy  -- done
+        (sync DB in parallel on write action to the cache) --> agar ye bol dega you have to use parallel threading
+Implementation of LRU (Least Recently Used) eviction.  -- done
+        should be extendable to LFU -- done
+Thread affinity for operations on the same key to maintain ordering & "read your own writes" -tbd
+"Read your own writes" consistency guarantees. -- tbd
+Use of Java generics for flexible key-value types. -- done
+Extensible design for future write policies and eviction algorithms. -- done
+
+
+We'll ignore request collapsing, hot loading, event logging, and head-of-line blocking.
+        (We'll discuss these concepts in HLD course)

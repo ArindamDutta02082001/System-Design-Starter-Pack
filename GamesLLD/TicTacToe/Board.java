@@ -1,7 +1,7 @@
 package GamesLLD.TicTacToe;
 
 import GamesLLD.TicTacToe.entity.Cell;
-import GamesLLD.TicTacToe.entity.Player;
+import GamesLLD.TicTacToe.entity.Player.Player;
 import GamesLLD.TicTacToe.observer.publisher.ScoreBoardPublisher;
 import GamesLLD.TicTacToe.strategy.*;
 
@@ -58,10 +58,11 @@ public class Board {
             }
         }
 
-        // initialize player queue
-        playerQueue = new ArrayDeque<>();
-        playerQueue.addLast(p1);
-        playerQueue.addLast(p2);
+        // req in auto lpay
+//        // initialize player queue
+//        playerQueue = new ArrayDeque<>();
+//        playerQueue.addLast(p1);
+//        playerQueue.addLast(p2);
     }
 
     public void makeMove( Player p , int x , int y)

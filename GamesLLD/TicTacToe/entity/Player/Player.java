@@ -1,4 +1,4 @@
-package GamesLLD.TicTacToe.entity;
+package GamesLLD.TicTacToe.entity.Player;
 
 public abstract class Player {
     public String name;

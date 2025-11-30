@@ -1,8 +1,8 @@
 package GamesLLD.TicTacToe;
 
-import GamesLLD.TicTacToe.entity.Computer;
-import GamesLLD.TicTacToe.entity.HumanPlayer;
-import GamesLLD.TicTacToe.entity.Player;
+import GamesLLD.TicTacToe.entity.Player.Computer;
+import GamesLLD.TicTacToe.entity.Player.HumanPlayer;
+import GamesLLD.TicTacToe.entity.Player.Player;
 import GamesLLD.TicTacToe.observer.subsciber.ScoreBoardSubs;
 
 import java.util.Scanner;
@@ -77,7 +77,7 @@ class Main
                 String symbol1 = sc.next();
 
                 Player human = new HumanPlayer( name1 , symbol1 );
-                Computer p1c = new Computer("PC" , symbol1.equals("X") ? "O" : "X" );
+                Player p1c = new Computer("PC" , symbol1.equals("X") ? "O" : "X" );
 
                 board.playerQueue.add(human);
                 board.playerQueue.add(p1c);

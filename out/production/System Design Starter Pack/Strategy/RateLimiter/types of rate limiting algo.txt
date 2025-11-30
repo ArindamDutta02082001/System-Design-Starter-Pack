@@ -1,0 +1,94 @@
+✅ 1. Fixed Window Counter
+
+Simplest rate limiter.
+
+Idea: Time is divided into fixed windows (1 sec, 2 sec or 1 min)
+
+what to do :
+Maintain a req counter for each user in a map
+on incoming user req , check the curr time - start time <= window siz time ,
+if no , remove userid from map , reset start time to curr time
+
+at end
+If count > req limit → return false
+
+Pros:
+Simple & fast (O(1)) , Easy to implement
+
+Cons:
+"Burst" problem at window boundaries
+
+✅ 2. Sliding Window Log
+Idea: Store timestamps of each request in a queue/log
+
+Remove old timestamps continuously
+
+Size of queue = number of requests in last X seconds
+
+Pros:
+
+Most accurate
+
+Cons:
+
+High memory usage for large traffic
+
+Expensive inserts/deletes
+
+✅ 3. Sliding Window Counter (SKIP not req)
+
+Hybrid of fixed window + sliding log
+
+Idea:
+
+Use two windows: current & previous
+
+Weighted calculation → smoothes traffic
+
+Pros:
+
+Less bursty than fixed window
+
+Lower memory than sliding log
+
+Cons:
+
+Still approximate
+
+✅ 4. Token Bucket (Most used in industry)
+Idea:
+
+A bucket stores tokens
+
+Requests consume tokens
+
+Tokens refill at a fixed rate (leaky tap)
+
+If bucket empty → reject
+
+Pros:
+
+Allows bursts
+
+Very efficient
+
+Used by: AWS, Google Cloud, Nginx
+
+Cons:
+
+Slightly more complex
+
+✅ 5. Leaky Bucket
+Idea:
+
+Queue of fixed size
+
+Requests leak out at a fixed rate
+
+If queue full → drop incoming requests
+
+Pros:
+
+Smooth, stable traffic
+
+Cons:

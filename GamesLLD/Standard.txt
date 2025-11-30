@@ -1,0 +1,14 @@
+
+
+in game players and game pieces
+- always try to keep an abstract class and then extend it for different players
+- always try to keep an abstract class and then extend it for different game pieces
+
+// extra : create a factory of pieces and players , else mention and aage bad jaa
+// in the client class use new
+
+you would argue : create a class and create diff fields like type , color , etc
+but this would violate the OCP , when new player or pieces to be added
+
+
+
