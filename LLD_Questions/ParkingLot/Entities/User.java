@@ -38,7 +38,7 @@ public class User {
 
     // payment service embeddin here as user can have his own payment method    
     //  **vvi dekho jaha jaha use karna hai waha waha aise strategy embedding karna hai
-    Payment paymentStrategy;
+    public Payment paymentStrategy;
 
     public User( int id, String name , String mobile , String email)
     {

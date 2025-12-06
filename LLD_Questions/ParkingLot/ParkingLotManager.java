@@ -157,7 +157,8 @@ public class ParkingLotManager {
         // set the exit time 
         ticket.setExitTime(LocalDateTime.now());
 
-        long duration = ticket.getParkingDurationInHours();
+//        long duration = ticket.getParkingDurationInHours();
+         long duration = 1; // for testing purpose
 
         // caculate parking fee using strategy
         Double amount = parkingFeeStrategy.calc(  ticket.vehicle.vehicleType , duration  );

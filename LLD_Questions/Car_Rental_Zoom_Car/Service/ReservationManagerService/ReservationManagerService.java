@@ -21,10 +21,10 @@ public class ReservationManagerService {
     }
 
     // cancel a reservation
-    public void reserveVehicle( String reserveId )
-    {
-        
-    }
+//    public void reserveVehicle( String reserveId )
+//    {
+//
+//    }
 
     // modify a reservation
 

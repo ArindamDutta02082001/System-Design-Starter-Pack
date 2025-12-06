@@ -77,7 +77,7 @@ public class Main {
         parkingLot.subscribe( subscriber1 );
         parkingLot.subscribe( subscriber2 );
 
-        User user2 = new User( 2 ,"User2" , "9999999999" , "user1@mail.com");
+        User user2 = new User( 2 ,"User2" , "99876756" , "user2@mail.com");
         // user2 wants only email notification
         SubscriberInterface subscriber3  = new ParkingLot.observer.subscriber.EmailSubscriber( user2 );
         parkingLot.subscribe( subscriber3 );
@@ -109,8 +109,12 @@ public class Main {
         user2.setPaymentStrategy(new UPIPaymentStrategy());
 
         // unparking the vehicles
-        parkingLot.unparkVehicle( ticket1 );
-        parkingLot.unparkVehicle( ticket2 );
+        Double cost1 = parkingLot.unparkVehicle( ticket1 );
+        Double cost2 = parkingLot.unparkVehicle( ticket2 );
+
+        // finally pay the amounts
+        user1.payParkingFee( cost1 );
+        user2.payParkingFee( cost2 );
 
 
        

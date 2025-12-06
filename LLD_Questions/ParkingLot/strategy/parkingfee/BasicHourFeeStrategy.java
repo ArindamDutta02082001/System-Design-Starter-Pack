@@ -6,6 +6,7 @@ public class BasicHourFeeStrategy implements ParkingFee {
 
     @Override
     public Double calc( VehicleTypeEnum vehicleTypeEnum , long durationInHour ) {
+
         
         Double fee = 0.0;
 
