@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/System Design Backend/System Design Backend.iml" filepath="$PROJECT_DIR$/System Design Backend/System Design Backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LLD_Questions/System Design Backend.iml" filepath="$PROJECT_DIR$/LLD_Questions/System Design Backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/System Design Starter Pack.iml" filepath="$PROJECT_DIR$/System Design Starter Pack.iml" />
     </modules>
   </component>
