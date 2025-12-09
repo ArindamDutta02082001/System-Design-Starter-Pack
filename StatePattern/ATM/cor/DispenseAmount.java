@@ -1,6 +1,8 @@
 package StatePattern.ATM.cor;
 
-import StatePattern.ATM.other_entity.ATM;
+import StatePattern.ATM.entity.ATM;
+
+// this COR will be used inside the dispense state class 
 
 public interface DispenseAmount {
     

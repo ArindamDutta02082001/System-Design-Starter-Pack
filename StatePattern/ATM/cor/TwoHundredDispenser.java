@@ -1,6 +1,6 @@
 package StatePattern.ATM.cor;
 
-import StatePattern.ATM.other_entity.ATM;
+import StatePattern.ATM.entity.ATM;
 
 public class TwoHundredDispenser implements DispenseAmount {
     

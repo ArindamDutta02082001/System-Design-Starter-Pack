@@ -1,6 +1,6 @@
 package StatePattern.ATM.states;
 
-import StatePattern.ATM.other_entity.Card;
+import StatePattern.ATM.entity.Card;
 
 public interface State {
     

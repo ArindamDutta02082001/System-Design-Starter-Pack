@@ -1,4 +1,4 @@
-package StatePattern.ATM.other_entity;
+package StatePattern.ATM.entity;
 
 public enum CardType {
 

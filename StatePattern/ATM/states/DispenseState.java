@@ -5,7 +5,7 @@ import StatePattern.ATM.cor.DispenseAmount;
 import StatePattern.ATM.cor.FiveHundredDispenser;
 import StatePattern.ATM.cor.OneHundredDispenser;
 import StatePattern.ATM.cor.TwoHundredDispenser;
-import StatePattern.ATM.other_entity.Card;
+import StatePattern.ATM.entity.Card;
 
 public class DispenseState implements State {
     

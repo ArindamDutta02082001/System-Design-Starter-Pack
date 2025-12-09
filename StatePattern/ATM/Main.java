@@ -1,8 +1,8 @@
 package StatePattern.ATM;
 
-import StatePattern.ATM.other_entity.ATM;
-import StatePattern.ATM.other_entity.Card;
-import StatePattern.ATM.other_entity.CardType;
+import StatePattern.ATM.entity.ATM;
+import StatePattern.ATM.entity.Card;
+import StatePattern.ATM.entity.CardType;
 
 public class Main {
 

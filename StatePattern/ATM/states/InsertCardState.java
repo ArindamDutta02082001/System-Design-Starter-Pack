@@ -1,7 +1,7 @@
 package StatePattern.ATM.states;
 
 import StatePattern.ATM.ATMMachineContextManager;
-import StatePattern.ATM.other_entity.Card;
+import StatePattern.ATM.entity.Card;
 
 public class InsertCardState implements State {
     
