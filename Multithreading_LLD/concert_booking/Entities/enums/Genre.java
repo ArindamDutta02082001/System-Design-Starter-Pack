@@ -1,4 +1,4 @@
-package Multithreading_LLD.movie_booking.Entities.enums;
+package Multithreading_LLD.concert_booking.Entities.enums;
 
 public enum Genre {
     COMEDY ,
