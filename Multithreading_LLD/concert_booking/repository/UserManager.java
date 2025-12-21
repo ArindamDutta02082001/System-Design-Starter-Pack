@@ -5,7 +5,7 @@ import Multithreading_LLD.concert_booking.Entities.User;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserRepository {
+public class UserManager {
 
     Map<String, User> userMap = new HashMap<>();
 
@@ -17,6 +17,8 @@ public class UserRepository {
             System.out.println("User is already registered");
         userMap.put(user.userid,user);
     }
+
+    // other methods we can add for now this only
 
 
 }

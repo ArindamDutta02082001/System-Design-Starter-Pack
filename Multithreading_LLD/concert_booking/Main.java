@@ -7,7 +7,7 @@ public class Main {
     public static void main( String[] args )
     {
 
-        // setting the actors
+        // **************** actors ****************
 
         // user creating
         User user1 = new User("user_1");

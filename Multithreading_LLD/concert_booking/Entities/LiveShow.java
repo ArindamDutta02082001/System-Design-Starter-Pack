@@ -14,7 +14,7 @@ public class LiveShow {
 
     // taking 2 attr as of now , ise basis pe show sort hinge
     public Genre genre;
-    int bookingCount;
+    int bookingCount;  // for popularity
 
     // this show will be available in this time slot
     List<ShowSlot> allSlots;
@@ -29,40 +29,26 @@ public class LiveShow {
         this.genre = genre;
     }
 
+
+    // user methods
+    public List<ShowSlot> getSlots() {
+        return allSlots;
+    }
+
+    // admin methods
+
     // Prevent overlapping slots for same show
     public void addSlot(ShowSlot slot) {
         for (ShowSlot s : allSlots) {
-            if ( slot.isOverlap(slot.timeSlot) ){
+            if ( slot.isOverlapForCurrentSlot(slot.timeSlot) ){
                 throw new RuntimeException("Overlapping slot not allowed for show");
             }
         }
         allSlots.add(slot);
     }
 
-    public List<ShowSlot> getSlots() {
-        return allSlots;
-    }
 
-    public boolean isSlotAvaliable( LocalDateTime time)
-    {
-        ShowSlot s = allSlots.stream().filter( e->e.timeSlot.startHour.isEqual(time)).toList().getFirst();
-        return s.countOfBooking != s.capacity;
-    }
 
-    public synchronized boolean bookSlot( LocalDateTime time , User u)
-    {
-        ShowSlot s = allSlots.stream().filter( e->e.timeSlot.startHour.isEqual(time)).toList().getFirst();
-        if(isSlotAvaliable(time))
-            s.countOfBooking +=1;
-        else
-        {
-            // add to the wait list
-            s.addToWaitList(u);
-            return false;
-        }
-
-        return true;
-    }
 
 
 }

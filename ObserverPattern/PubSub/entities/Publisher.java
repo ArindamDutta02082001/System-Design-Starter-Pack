@@ -1,17 +1,14 @@
-package ObserverPattern.PubSub.publisher;
+package ObserverPattern.PubSub.entities;
 
 import java.time.Instant;
 import java.util.*;
 
-import ObserverPattern.PubSub.entities.MessageDto;
-import ObserverPattern.PubSub.entities.Topic;
-import ObserverPattern.PubSub.entities.TopicEnum;
+import ObserverPattern.PubSub.observer.publisher.Subject;
 
 public class  Publisher {
 
     // list of topics
     List<Topic> topicList = new ArrayList<>();
-
 
 
     // publisher fn
@@ -24,7 +21,7 @@ public class  Publisher {
         {
             if(t.topicEnum.equals(topicEnum) )
             {
-                t.publish(newMessageDto);
+                t.notifyObservers(newMessageDto);
                 return;
             }
         }

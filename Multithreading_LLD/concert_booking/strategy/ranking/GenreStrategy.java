@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class GenreStrategy implements RankingStrategy{
 
     Genre genre;
-    public GenreStrategy(Genre g)
+    public GenreStrategy(Genre g)  // we will return the shows of this genre only
     {
         this.genre = g;
     }
