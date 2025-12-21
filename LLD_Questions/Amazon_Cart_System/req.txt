@@ -1,0 +1,20 @@
+
+ General cart system
+
+user should register first themself  -- done
+user should add , remove , update items in cart -- done
+ **apply discounts (flat ,  percentage discount , cart level and item level discounts ) ,
+ One discount should not be applied on top of another coupon  -- done
+ **tax system ( can be state , country specific ) tax calculation  -- done
+ (optional) shipping options ( standard , express , free shipping based on order value )
+  Thread safe cart system
+
+
+ // for state pattern I am including this as well  -- done
+ there should be inventory management system
+ inventory should be updated when order is placed , they can add, remove , update inventory items
+ the order placed should be controlled by the inventory manager( state pattern)
+
+ generate a invoice of the total bill after all the calc is over  -- done
+
+

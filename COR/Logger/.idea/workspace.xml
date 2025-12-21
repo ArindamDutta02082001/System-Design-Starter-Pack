@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="28d55dd6-600e-4d44-9c30-462796462f3d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/cor/tax_strategy/CGST.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/cor/tax_strategy/StateTax.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/cor/tax_strategy/Tax.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/entities/UserInvoiceOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/repository/CartManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/repository/CustomerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/repository/InventoryManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/repository/OrderManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/repository/TaxManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/req.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/state/CancelOrderState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/state/OrderState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/state/PlacedOrderState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/state/ShippedOrderState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/strategy/discount_strategy/DiscountStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/strategy/discount_strategy/FlatDiscountStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/strategy/discount_strategy/PercentageDiscountStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/strategy/payment_strategy/CreditCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/strategy/payment_strategy/DebitCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/strategy/payment_strategy/PaymentStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ERRORLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/ERRORLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/INFOLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/INFOLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoggerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/LoggerCORInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WARNLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/WARNLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/AmazonUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/Entities/Cart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/Entities/CartItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/Entities/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/Entities/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/Service/AmazonService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/amazon.excalidraw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/lld.excalidraw" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="379XBf8GlUIncDHGeelh7wpAPcU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="28d55dd6-600e-4d44-9c30-462796462f3d" name="Changes" comment="" />
+      <created>1766316128222</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1766316128222</updated>
+    </task>
+    <servers />
+  </component>
+</project>
