@@ -11,11 +11,8 @@ import java.util.Map;
 
 public class LiveShowManager {
 
-    public RankingStrategy rs ;
-
-    public LiveShowManager( RankingStrategy rs )
+    public LiveShowManager( )
     {
-        this.rs = rs;
     }
 
     Map<String,LiveShow> liveShows = new HashMap<>();  // hold the shows
@@ -41,9 +38,8 @@ public class LiveShowManager {
         List<LiveShow> searchAns = rankingStrategy.rank(getallLiveShows());
         for( LiveShow l : searchAns)
         {
-            System.out.println(" For Show : "+l.name);
             for(ShowSlot s : l.getSlots())
-                System.out.println( "Slots : start is : +"+s.timeSlot.startHour+" & genre :"+l.genre);
+                System.out.println( " For Show : "+l.name+" Slots : start is : "+s.timeSlot.startHour.getHour()+" & genre :"+l.genre);
         }
     }
 

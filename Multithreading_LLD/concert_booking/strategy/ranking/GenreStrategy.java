@@ -18,6 +18,6 @@ public class GenreStrategy implements RankingStrategy{
     @Override
     public List<LiveShow> rank(List<LiveShow> liveShows) {
 
-        return liveShows.stream().filter(e->e.genre.equals(genre)).sorted((a, b) -> a.genre.compareTo(b.genre)).collect(Collectors.toList());
+        return liveShows.stream().filter(e->e.genre.equals(genre)).collect(Collectors.toList());
     }
 }

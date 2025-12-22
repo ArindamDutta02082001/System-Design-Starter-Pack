@@ -1,6 +1,6 @@
 package Multithreading_LLD.concert_booking.strategy.payment;
 
-public interface PaymentStrategy {
+public interface PaymentStrategyNOTUSED {
 
     public void pay( Double amt);
 }

@@ -18,6 +18,13 @@ public class UserManager {
         userMap.put(user.userid,user);
     }
 
+    public void unregister( User u )
+    {
+        if( !userMap.containsKey(u.userid) )
+            System.out.println("User is not there");
+        userMap.remove(u);
+    }
+
     // other methods we can add for now this only
 
 
