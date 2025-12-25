@@ -10,23 +10,22 @@ public class Invoice {
     // It will be summation of the users and the orders and the final receipts
 
     Customer customer;
-    ShoppingCart shoppingCart;
+    public Order order;
     Double finalPrice;
+    public String orderId ;
 
-    Integer orderId = UUID.randomUUID().hashCode();
-
-    public Invoice(Customer customer , ShoppingCart shoppingCart) {
+    public Invoice(Customer customer , Order order , Double amt) {
 
         this.customer = customer;
-        this.shoppingCart = shoppingCart;
-        this.finalPrice = shoppingCart.getTotal();
+        this.finalPrice = amt;
+        this.order = order;
+        this.orderId = order.orderId;
     }
 
     @Override
     public String toString() {
         return "Invoice{" +
                 "customer=" + customer +
-                ", shoppingCart=" + shoppingCart +
                 ", finalPrice=" + finalPrice +
                 ", orderId=" + orderId +
                 '}';

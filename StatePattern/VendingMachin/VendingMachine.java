@@ -1,9 +1,6 @@
 package StatePattern.VendingMachin;
 
-import java.lang.Thread.State;
-
-import StatePattern.VendingMachin.inventory.Inventory;
-import StatePattern.VendingMachin.inventory.Product;
+import StatePattern.VendingMachin.entity.Product;
 import StatePattern.VendingMachin.states.DispenseInsertState;
 import StatePattern.VendingMachin.states.InsertCoinState;
 import StatePattern.VendingMachin.states.SelectState;
@@ -11,13 +8,47 @@ import StatePattern.VendingMachin.states.StateEnum;
 import StatePattern.VendingMachin.states.StateFactory;
 import StatePattern.VendingMachin.states.States;
 
-public class VendingMachineContext {
+import java.util.HashMap;
+import java.util.Map;
 
-    //This is the main class  or we can say the manager class
+public class VendingMachine {
+
+    // mapping of the product code to the product object
+    Map<String, Product> productMap = new HashMap<>();
+
+
+    //utility functions
+    public void addProduct( String code , Product p)
+    {
+        if(!productMap.containsKey(code))   // new product
+            productMap.put( code , p);
+    }
+
+    // to update the qty of the product
+    public void updateProductQty( String code , Integer qty)
+    {
+        if(productMap.containsKey(code))   // product exists
+            productMap.get(code).quantity = qty;
+        else
+            System.out.println(" Product does not exist !! ");
+    }
+
+    // to get an item based on the button code
+    public Product getProduct( String code )
+    {
+        return productMap.getOrDefault(code, null);
+    }
+
+
+
+
+
+
+
+    //This is the main class, or we can say the manager class
 
     public Product selectedProduct = null;
-    public String pressedButton = "";
-
+    public String pressedButton ="";
     public int balance =0;
 
 
@@ -29,21 +60,15 @@ public class VendingMachineContext {
 
     // **vvi to store the current initial state in the State Pattern
     States currState;
-
-
-    // setting the Inventory for putting the products ---> this you can do in the main class as this is a admin stuffs just to stimulate the VM
-    public Inventory inventory;
     
 
     // constructor to initialize them
-    VendingMachineContext()
+    VendingMachine()
     {
-
-        inventory = new Inventory();
 
         stateFactory = new StateFactory(this);
         
-        // // every time writing new new here is not acceptable in State Pattern , this part is moved to StateFactory class
+        // // every time writing new here is not acceptable in State Pattern , this part is moved to StateFactory class
         // insertCoinState = new InsertCoinState(this);
         // selectState = new SelectState(this);
         // dispenseInsertState = new DispenseInsertState(this);
@@ -59,15 +84,6 @@ public class VendingMachineContext {
     }
 
 
-    // utility fn to put the products into inventory for admins
-    public void addItemToInventory( String code , Product p)
-    {
-        inventory.addProduct( code , p);
-    }
-
-
-
-
 
     // ** vvi    
     // for changing the current state
@@ -79,17 +95,16 @@ public class VendingMachineContext {
 
 
 
-    // utiltiy fns for the consumer of the VM
+    // utiltiy fns to trigger the state methods
 
     public void insertCoin( int amt)    // for inserting the coin
     {
-        currState.insertCoin( this , amt);
+        currState.insertCoin(  amt);
     }
 
     public void pressButtonToSelectItem( String code)
     {
-        this.pressedButton = code;
-        currState.pressButton( this , code);
+        currState.pressButton(  code);
     }
 
     public void selectProduct( Product product)
@@ -99,13 +114,13 @@ public class VendingMachineContext {
 
     public void dispenseItem()
     {
-        currState.dispenseItem( this);
+        currState.dispenseItem();
     }
 
 
 
-    // utility fucntion to reset the context so that I can add multiple test cases in the main class
-    // else bar bar new VendingMachineContext() krna padega not a good practice
+    // utility function to reset the context so that I can add multiple test cases in the main class
+    // else bar bar new VendingMachine() krna padega not a good practice
     public void resetVendingMachineContext()
     {
         this.currState = insertCoinState;

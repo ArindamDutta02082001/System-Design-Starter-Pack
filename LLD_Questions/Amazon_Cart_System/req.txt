@@ -18,3 +18,32 @@ user should add , remove , update items in cart -- done
  generate a invoice of the total bill after all the calc is over  -- done
 
 
+
+
+
+ Flipkart LLD - extended Order state  --> the changes that I will do nw I will use FL in front of the classes
+
+ For a given Flipkart Order we have to calculate if some of the user actions are eligible or not. To make things simple you can assume that there will be only one item in an order. These are the conditions for the eligibility criteria:
+
+ 1. Cancellation eligibility - All orders are allowed to be canceled before it is delivered.
+
+ 2. Address change - All orders are allowed for address change before order has been shipped.
+
+ 3. Return - Return can be created if the item in an order is delivered and the return period is not over. These are the conditions for the return period:
+
+ 4. For Mobile category return period is 10 days from the order delivery date , For all other categories it is 30 days post order delivery.
+
+ public T actionEligibility(Order order) {  }
+
+ #### Expectation:
+
+ 1. Define necessary classes / Models
+ 2. Define T so that more actions eligibility can be added in future without doing changes in the model.
+ 3. Write the code in the method actionEligibility for the actions like: Cancellation, Address Change, Return.
+
+
+ here he wants the T value, which type of Return type should be here.
+ he just want to how do you solve just tell the approach which model/class will you create.
+
+
+

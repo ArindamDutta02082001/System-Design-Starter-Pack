@@ -1,6 +1,9 @@
 import java.io.IOException;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import entities.*;
+import entities.enums.CATEGORY;
 import repository.*;
 import state.OrderState;
 import strategy.discount_strategy.DiscountEngine;
@@ -12,13 +15,15 @@ public class AmazonService {
     // now registering all the other managers (manager + services)
     // later in MVC , we need to segregate the services and repository layer
 
+    Map<Integer, List<Order>> userOrders;   // you can create a separate Order manager or this
+
     CartManager cartManager ;
 
     public InventoryManager inventoryManager;
 
     CustomerManager customerManager;
 
-    OrderStateManager orderStateManager;
+//    OrderStateManager orderStateManager;    heavily wrong
 
     PaymentStrategy paymentStrategy;
 
@@ -37,9 +42,9 @@ public class AmazonService {
         cartManager = new CartManager();
         inventoryManager = new InventoryManager();
         customerManager = new CustomerManager();
-        orderStateManager = new OrderStateManager();
         taxManager = new TaxManager();
         discountEngine = new DiscountEngine();
+        this.userOrders = new HashMap<>();
 
         if( amazonService != null )
         {
@@ -75,6 +80,8 @@ public class AmazonService {
         this.paymentStrategy = paymentStrategy;
     }
 
+
+    // add remove products to Carts
     public void facadeAddProductToCart(Integer userID , Product p )
     {
         cartManager.addProductToShoppingCart(userID , p);
@@ -89,8 +96,8 @@ public class AmazonService {
 
 
 
-    // creating fascade Place Order method
-    public Invoice facadePlaceOrder( Integer userID )
+    // creating facade Place Order method
+    public Invoice facadePlaceOrder(Integer userID, String address , CATEGORY category)
     {
         // get the cart items for the user from cart manager
         ShoppingCart shoppingCart = cartManager.getCart( userID );
@@ -102,35 +109,40 @@ public class AmazonService {
         // calc the tax and the discounts if any
 
         double taxAmount = taxManager.calculateTotalTax( total );
-        double maxDiscoun = discountEngine.applyBestCoupon( shoppingCart );
+        double maxDiscount = discountEngine.applyBestCoupon( shoppingCart );
+
+        Order order = new Order( userID , shoppingCart.getItems() , address , category);
+        userOrders
+                .computeIfAbsent(userID, k -> new ArrayList<>())
+                .add(order);
 
         // setting the order to placed state
-         Invoice inv = orderStateManager.placeOrder(customerManager.getCustomer(userID) , shoppingCart);
+        Invoice inv = order.placeOrder(customerManager.getCustomer(userID) , shoppingCart);
 
 
         // call payment strategy to pay the amount
-        paymentStrategy.pay( total+taxAmount - maxDiscoun );
+        paymentStrategy.pay( total+taxAmount - maxDiscount );
 
         // clear the cart
         cartManager.clearCart( userID );
+
         return inv;
     }
 
-     public void facadeCancelOrder( )
+     public Boolean facadeCancelOrder( Integer userID , String orderId )
      {
-         orderStateManager.cancelOrder();
+         if(!userOrders.containsKey(userID)) return false;
+
+         Order o = userOrders.get(userID).stream().filter( e -> Objects.equals(e.orderId, orderId)).toList().get(0);
+         o.cancelOrder();
+
+         List<Order> items = userOrders.get(userID).stream().filter( e -> !Objects.equals(e.orderId, orderId)).toList();
+        userOrders.put(userID , items);
+
+        System.out.println( orderId +" cancelled for user :"+userID);
+
+        return true;
      }
-
-
-    // admin methods , here I am not creating again inventory add and remove
-
-    // inventory manager will trigger this
-    public void shipAndDeliverOrder( OrderStateManager o )
-    {
-        orderStateManager.shipOrder();
-        orderStateManager.deliverOrder();
-    }
-
 
     
 }

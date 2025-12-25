@@ -1,8 +1,10 @@
 package repository;
 
+import entities.Order;
 import entities.Product;
 import entities.ShoppingCart;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CartManager {

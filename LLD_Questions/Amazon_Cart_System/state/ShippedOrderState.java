@@ -2,37 +2,40 @@ package state;
 
 import entities.Customer;
 import entities.Invoice;
+import entities.Order;
 import entities.ShoppingCart;
-import repository.OrderStateManager;
+import entities.enums.ORDER_STATUS;
 
 public class ShippedOrderState  implements OrderState{
 
-    OrderStateManager orderStateManager;
-    public ShippedOrderState(OrderStateManager orderStateManager)    {
-        this.orderStateManager = orderStateManager;
+    Order order;
+    public ShippedOrderState(Order order)    {
+        this.order = order;
     }
 
 
     @Override
-    public Invoice placeOrder(OrderStateManager orderStateManager, Customer c, ShoppingCart s) {
+    public Invoice placeOrder( Customer c, ShoppingCart s) {
         System.out.println("Order is  being  shipped !!");
         return null;
     }
 
     @Override
-    public void shipOrder(OrderStateManager orderStateManager) {
+    public void shipOrder() {
         System.out.println("Order is shipped successfully !!");
-        orderStateManager.setCurrentState(orderStateManager.deliverState);
+        order.status = ORDER_STATUS.IN_TRANSIT;
+        order.setCurrentState(order.deliverState);
     }
 
     @Override
-    public void cancelOrder(OrderStateManager orderStateManager) {
-        orderStateManager.setCurrentState( null );
+    public void cancelOrder() {
+        order.status = ORDER_STATUS.CANCELLED;
         System.out.println("Order is cancelled !!");
+        order.setCurrentState( null );
     }
 
     @Override
-    public void deliverOrder(OrderStateManager orderStateManager) {
+    public void deliverOrder() {
         System.out.println("Order is  being  shipped !!");
     }
 }

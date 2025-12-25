@@ -1,7 +1,7 @@
 import entities.Customer;
 import entities.Invoice;
 import entities.Product;
-import repository.OrderStateManager;
+import entities.enums.CATEGORY;
 import strategy.payment_strategy.CreditCard;
 import strategy.payment_strategy.PaymentStrategy;
 
@@ -45,19 +45,24 @@ public class Main {
         PaymentStrategy p = new CreditCard();
         as.setPaymentStrategy(p);
 
-        Invoice inv = as.facadePlaceOrder( c1.getCustomerId() );
+        Invoice inv = as.facadePlaceOrder( c1.getCustomerId() , "Bhedia 713126" , CATEGORY.MOBILE );
         // the order is in placed state now
 
-        // the admin will ship and deliver the order
-//        as.orderStateManager.cancelOrder();  // trying to cancel here should  work
-
+        // here you have got a orderid from the invoice we will use that
         System.out.println("Invoice generated : "+inv);
 
+        String orderId = inv.orderId;
+//        as.facadeCancelOrder(c1.getCustomerId(),  orderId);  // user trying to cancel here should  work
 
 
-        // now after order placing , admin will trigger the shipping and delivery
-        as.shipAndDeliverOrder(new OrderStateManager());
-//        as.orderStateManager.cancelOrder();  // trying to cancel here should not work
+
+
+//       now after order placing , admin will trigger the shipping and delivery
+        inv.order.shipOrder();
+//        inv.order.cancelOrder();  // trying to cancel here not possible as after shipping the order is nw in delivery state
+
+        inv.order.deliverOrder();
+//        inv.order.cancelOrder();  // trying to cancel not possible
 
 
 

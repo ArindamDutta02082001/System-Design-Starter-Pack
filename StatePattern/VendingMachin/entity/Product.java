@@ -1,4 +1,4 @@
-package StatePattern.VendingMachin.inventory;
+package StatePattern.VendingMachin.entity;
 
 public class Product {
 
