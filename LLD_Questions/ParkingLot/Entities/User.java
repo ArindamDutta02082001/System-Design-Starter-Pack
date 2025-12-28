@@ -1,7 +1,12 @@
 package ParkingLot.Entities;
 
 import ParkingLot.factory.Vehicle;
+import ParkingLot.observer.subscriber.ChannelInterface;
+import ParkingLot.observer.subscriber.Subscriber;
 import ParkingLot.strategy.payments.Payment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
 
@@ -23,7 +28,7 @@ So placing Ticket inside User makes the model heavy and wrong.
  
 */
 
-public class User {
+public class User implements Subscriber {
     
     public int id;
     public String name;
@@ -40,12 +45,17 @@ public class User {
     //  **vvi dekho jaha jaha use karna hai waha waha aise strategy embedding karna hai
     public Payment paymentStrategy;
 
+    // **vvi observer pattern : to store the list of user preferred channels
+    List<ChannelInterface> preferredChannels;
+
+
     public User( int id, String name , String mobile , String email)
     {
         this.id = id;   
         this.name = name;
         this.mobile = mobile;
         this.email = email;
+        this.preferredChannels = new ArrayList<>();
     }
 
     // add a vehicle to user
@@ -69,6 +79,23 @@ public class User {
     public void payParkingFee( Double amount )
     {
         paymentStrategy.pay( amount );
+    }
+
+
+
+    // observer pattern to notify the user via preferred channels
+
+    public void addPreferredChannel( ChannelInterface channel )
+    {
+        this.preferredChannels.add( channel );
+    }
+
+    @Override
+    public void update(String message) {
+        for( ChannelInterface ch : preferredChannels )
+        {
+            ch.notify( message , this );
+        }
     }
 }
 

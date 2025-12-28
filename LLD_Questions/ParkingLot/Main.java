@@ -11,8 +11,9 @@ import ParkingLot.Entities.User;
 import ParkingLot.factory.Vehicle;
 import ParkingLot.factory.VehicleFactory;
 import ParkingLot.factory.VehicleTypeEnum;
-import ParkingLot.observer.subscriber.SMSSubscriber;
-import ParkingLot.observer.subscriber.SubscriberInterface;
+import ParkingLot.observer.subscriber.EmailChannel;
+import ParkingLot.observer.subscriber.SMSChannel;
+import ParkingLot.observer.subscriber.ChannelInterface;
 import ParkingLot.strategy.parkingfee.PremiumMinuteFeeStrategy;
 import ParkingLot.strategy.payments.CreditCardPaymentStrategy;
 import ParkingLot.strategy.payments.UPIPaymentStrategy;
@@ -71,16 +72,24 @@ public class Main {
 
         // create 2 users with their vehicles  + creating subscribers for notification
         User user1 = new User( 1 ,"User1" , "9999999999" , "user1@mail.com");
+
         // user1 wants SMS notification + email notification
-        SubscriberInterface subscriber1  = new SMSSubscriber( user1 );
-        SubscriberInterface subscriber2  = new ParkingLot.observer.subscriber.EmailSubscriber( user1 );
-        parkingLot.subscribe( subscriber1 );
-        parkingLot.subscribe( subscriber2 );
+        ChannelInterface channel1  = new SMSChannel();
+        ChannelInterface channel2  = new EmailChannel();
+        user1.addPreferredChannel(channel1);
+        user1.addPreferredChannel(channel2);
+
+        // user1 subscribed to parking lot manager
+        parkingLot.subscribe( user1 );
 
         User user2 = new User( 2 ,"User2" , "99876756" , "user2@mail.com");
+
         // user2 wants only email notification
-        SubscriberInterface subscriber3  = new ParkingLot.observer.subscriber.EmailSubscriber( user2 );
-        parkingLot.subscribe( subscriber3 );
+        ChannelInterface channel3  = new EmailChannel( );
+        user2.addPreferredChannel(channel3);
+
+        // user2 subscribed to parking lot manager
+        parkingLot.subscribe( user2 );
 
         // mapping the userid : user object
         parkingLot.setUsers( user1.id , user1 );

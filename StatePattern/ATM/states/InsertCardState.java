@@ -1,13 +1,13 @@
 package StatePattern.ATM.states;
 
-import StatePattern.ATM.ATMMachineContextManager;
+import StatePattern.ATM.ATMSManager;
 import StatePattern.ATM.entity.Card;
 
 public class InsertCardState implements State {
     
-    ATMMachineContextManager next = null;
+    ATMSManager next = null;
 
-    public InsertCardState( ATMMachineContextManager next)
+    public InsertCardState( ATMSManager next)
     {
         this.next = next;
     }

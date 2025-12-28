@@ -1,17 +1,18 @@
 package StatePattern.ATM.states;
 
-import StatePattern.ATM.ATMMachineContextManager;
+import StatePattern.ATM.ATMSManager;
 import StatePattern.ATM.cor.DispenseAmount;
 import StatePattern.ATM.cor.FiveHundredDispenser;
 import StatePattern.ATM.cor.OneHundredDispenser;
 import StatePattern.ATM.cor.TwoHundredDispenser;
+import StatePattern.ATM.entity.ATM;
 import StatePattern.ATM.entity.Card;
 
 public class DispenseState implements State {
     
-    ATMMachineContextManager next = null;
+    ATM next = null;
 
-    public DispenseState( ATMMachineContextManager next)
+    public DispenseState( ATM next)
     {
         this.next = next;
     }

@@ -1,0 +1,21 @@
+
+Naman Sharma youtube
+
+
+1. Users: - done
+The system should support users, each identified by a unique user name/ID - done
+Users can subscribe to different types of notifications and manage their notification channel preferences.
+
+2. Notification Channels: - done
+The system should support multiple notification channels, such as email, SMS, push notifications, and in-app notifications.
+
+3. Notification Types:
+Users can subscribe to different types of notifications, such as new messages, friend requests, system alerts, or custom events.
+Each notification type may have specific content and delivery requirements.
+
+
+ Bonus Requirements:
+
+1. Personation: Notifications may need to be personalized with user-specific information, such as the user's name or specific details related to the notification type.
+
+2. Opt-out and Preferences: Users should have the ability to opt out of specific notification types or unsubscribe from the notification service altogether. They should be able to manage their notification preferences, such as frequency or delivery channels.

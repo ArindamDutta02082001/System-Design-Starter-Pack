@@ -6,18 +6,15 @@ public class Main
 
         System.out.println("******************Logger***************");
 
-        // creating a chain or responsibility --> this is important
-        // checking will happen from ERROR -> WARN -> INFO
 
-        LoggerManager loggerManager1 = new INFOLogger(null);
-        LoggerManager loggerManager2 = new WARNLogger(loggerManager1);
-        LoggerManager loggerManager3 = new ERRORLogger(loggerManager2);
+
+        LoggerManager logger = LoggerManager.getInstance();
 
         // testing the chain
-        // humesa use the last logger manager
-        loggerManager3.print( LogEnum.ERROR , "This is a error message ");
-        loggerManager3.print( LogEnum.INFO , "This is a info message ");
-        loggerManager3.print( LogEnum.DUMMY , "This is a dummy message , should not be printed ");
+
+        logger.print( LogEnum.ERROR , "This is a error message ");
+        logger.print( LogEnum.INFO , "This is a info message ");
+        logger.print( LogEnum.DUMMY , "This is a dummy message , should not be printed ");
 
         
     }

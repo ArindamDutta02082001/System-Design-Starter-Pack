@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="46af7a1e-971d-4d20-aeba-a9d9aa6936e9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../COR/AdvancedLogger/ERRORLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/AdvancedLogger/INFOLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/AdvancedLogger/LogEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/AdvancedLogger/LoggerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/AdvancedLogger/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/AdvancedLogger/WARNLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/AdvancedLogger/requirement.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/Logger/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../COR/Logger/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/Logger/ERRORLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../COR/Logger/ERRORLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/Logger/INFOLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../COR/Logger/INFOLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/Logger/LoggerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../COR/Logger/LoggerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/Logger/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../COR/Logger/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../COR/Logger/WARNLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../COR/Logger/WARNLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/AmazonUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/Entities/Cart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/Entities/CartItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/Entities/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/Entities/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/Service/AmazonService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/amazon.excalidraw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/Entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/ParkingLotManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/ParkingLotManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/observer/publisher/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/observer/publisher/Publisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/observer/subscriber/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/observer/subscriber/Subscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/Entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/Entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/ParkingLotManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/ParkingLotManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/observer/publisher/Publisher.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/observer/publisher/Publisher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/observer/subscriber/EmailSubscriber.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/observer/subscriber/SMSSubscriber.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/ParkingLot/out/production/ParkingLot/ParkingLot/observer/subscriber/SubscriberInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Uber/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Uber/.idea/Ride_Sharing_System.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Uber/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Uber/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Uber/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LLD_Questions/demo/src/main/java/com/example/demo/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ObserverPattern/PubSub/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ObserverPattern/PubSub/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ObserverPattern/PubSub/entities/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ObserverPattern/PubSub/entities/Topic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ATMMachineContextManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ATMSManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity/ATM.java" beforeDir="false" afterPath="$PROJECT_DIR$/entity/ATM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/states/DispenseState.java" beforeDir="false" afterPath="$PROJECT_DIR$/states/DispenseState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/states/InsertAmtState.java" beforeDir="false" afterPath="$PROJECT_DIR$/states/InsertAmtState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/states/InsertCardState.java" beforeDir="false" afterPath="$PROJECT_DIR$/states/InsertCardState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/states/InsertPinState.java" beforeDir="false" afterPath="$PROJECT_DIR$/states/InsertPinState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VendingMachin/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VendingMachin/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VendingMachin/states/DispenseInsertState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VendingMachin/states/DispenseInsertState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VendingMachin/states/InsertCoinState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VendingMachin/states/InsertCoinState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VendingMachin/states/SelectState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VendingMachin/states/SelectState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VendingMachin/states/StateFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VendingMachin/states/StateFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VendingMachin/states/States.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VendingMachin/states/States.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="37M1HfgL32KFxTbMUZnKyMSsdd1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46af7a1e-971d-4d20-aeba-a9d9aa6936e9" name="Changes" comment="" />
+      <created>1766698039722</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1766698039722</updated>
+    </task>
+    <servers />
+  </component>
+</project>

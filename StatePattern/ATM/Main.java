@@ -14,8 +14,8 @@ public class Main {
         Card card = new Card("1", "Amit", 10000.0, CardType.CREDIT, "1234");
 
 
-        // making a context
-        ATMMachineContextManager a = new ATMMachineContextManager();
+        // this manager will be resposible for managing many ATMs
+        ATMSManager a = new ATMSManager();
 
         a.setATM(atm);
         a.setCard(card);

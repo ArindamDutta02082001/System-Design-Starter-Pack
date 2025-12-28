@@ -1,33 +1,33 @@
 package StatePattern.VendingMachin.states;
 
-import StatePattern.VendingMachin.VendingMachineContext;
+import StatePattern.VendingMachin.VendingMachine;
 
 public class InsertCoinState implements States {
 
-    VendingMachineContext vendingMachineContext;
+    VendingMachine vendingMachine;
 
-    public InsertCoinState( VendingMachineContext vendingMachineContext )
+    public InsertCoinState( VendingMachine vendingMachine)
     {
-        this.vendingMachineContext = vendingMachineContext;
-    }   
-
-    @Override
-    public void insertCoin( VendingMachineContext vendingMachineContext , int amount )
-    {
-        System.out.println(" Coin inserted successfully !! ");
-        vendingMachineContext.balance += amount;
-        vendingMachineContext.setCurrState(vendingMachineContext.selectState);  // transferring the state
+        this.vendingMachine = vendingMachine;
     }
 
     @Override
-    public void pressButton( VendingMachineContext vendingMachineContext , String buttonNumber)
+    public void insertCoin(int amount )
+    {
+        System.out.println(" Coin inserted successfully !! ");
+        vendingMachine.balance += amount;
+        vendingMachine.setCurrState(vendingMachine.selectState);  // transferring the state
+    }
+
+    @Override
+    public void pressButton(String buttonNumber)
     {
         System.out.println(" No coin inserted !!");
     }
     
     
     @Override
-    public void dispenseItem( VendingMachineContext vendingMachineContext)
+    public void dispenseItem()
     {
         System.out.println(" No coin inserted !!");
 

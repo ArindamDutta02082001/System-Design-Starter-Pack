@@ -1,53 +1,53 @@
 package StatePattern.VendingMachin.states;
 
 
-import StatePattern.VendingMachin.VendingMachineContext;
-import StatePattern.VendingMachin.inventory.Product;
+import StatePattern.VendingMachin.VendingMachine;
+import StatePattern.VendingMachin.entity.Product;
 
 public class SelectState implements States {
 
-    VendingMachineContext vendingMachineContext;
+    VendingMachine vendingMachine;
 
-    public SelectState( VendingMachineContext vendingMachineContext )
+    public SelectState( VendingMachine vendingMachine)
     {
-        this.vendingMachineContext = vendingMachineContext;
+        this.vendingMachine = vendingMachine;
     }
 
     @Override
-    public void insertCoin( VendingMachineContext vendingMachineContext , int amount )
+    public void insertCoin(int amount )
     {
-        System.out.println(" coin already inserted , please select an item for a balance of : "+ vendingMachineContext.balance );
+        System.out.println(" coin already inserted , please select an item for a balance of : "+ vendingMachine.balance );
     }
     
     @Override
-    public void pressButton( VendingMachineContext vendingMachineContext , String buttoncode )
+    public void pressButton(String buttoncode )
     {
-        System.out.println("Please select an item for a balance of : "+ vendingMachineContext.balance );
+        System.out.println("Please select an item for a balance of : "+ vendingMachine.balance );
         
-        // we need to validate the balance and update the inventory accordingly
+        // we need to validate the balance and update the VMOneInventory accordingly
 
-        if( vendingMachineContext.inventory.getProduct(buttoncode) != null )
+        if( vendingMachine.getProduct(buttoncode) != null )
         {
-            Product sp = vendingMachineContext.inventory.getProduct(buttoncode); 
+            Product sp = vendingMachine.getProduct(buttoncode);
+            vendingMachine.pressedButton = buttoncode;
             System.out.println(" Item selection .......... ");
-            vendingMachineContext.selectProduct( sp);
-            vendingMachineContext.pressedButton = buttoncode;
-            vendingMachineContext.setCurrState( vendingMachineContext.dispenseInsertState );
+            vendingMachine.selectProduct( sp);
+            vendingMachine.setCurrState( vendingMachine.dispenseInsertState );
             System.out.println(" your item : "+ sp.name+" will be selected ");
 
         }
         else
         {
-            System.out.println("Item cannot be selected , item is not there in inventory !!");
+            System.out.println("Item cannot be selected , item is not there in VMOneInventory !!");
         }          
         
     }
     
     
     @Override
-    public void dispenseItem( VendingMachineContext vendingMachineContext)
+    public void dispenseItem()
     {
-        System.out.println(" coin already inserted , please select an item for a balance of : "+ vendingMachineContext.balance );
+        System.out.println(" coin already inserted , please select an item for a balance of : "+ vendingMachine.balance );
 
     }
 

@@ -1,6 +1,6 @@
 package StatePattern.VendingMachin.states;
 
-import StatePattern.VendingMachin.VendingMachineContext;
+import StatePattern.VendingMachin.VendingMachine;
 
 public interface States {
 
@@ -9,9 +9,9 @@ public interface States {
 
     // our vening machine will have 4 states : noCoinState --> insertCoinState --> itemSelectedState --> dispenseItemState
 
-    public void insertCoin( VendingMachineContext vendingMachineContext , int amount );
-    public void pressButton( VendingMachineContext vendingMachineContext , String buttonNumber);
-    public void dispenseItem( VendingMachineContext vendingMachineContext); 
+    public void insertCoin(int amount );
+    public void pressButton(String buttonNumber);
+    public void dispenseItem();
 
     
 }

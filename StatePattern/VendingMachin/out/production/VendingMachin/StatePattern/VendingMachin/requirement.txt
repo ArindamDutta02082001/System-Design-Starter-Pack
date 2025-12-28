@@ -1,0 +1,6 @@
+
+
+Vending Machine lld
+
+- should contain an inventory where admins can add product to the inventory for the users
+- User should enter coin , select product , collect the item ( if present and amount > item cost)

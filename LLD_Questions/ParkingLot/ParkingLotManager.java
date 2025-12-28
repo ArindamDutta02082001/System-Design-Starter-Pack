@@ -1,9 +1,7 @@
 package ParkingLot;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import ParkingLot.Entities.Floor;
 import ParkingLot.Entities.ParkingSpot;
@@ -12,12 +10,20 @@ import ParkingLot.Entities.User;
 
 
 import ParkingLot.factory.Vehicle;
+import ParkingLot.observer.subscriber.Subscriber;
 import ParkingLot.strategy.parkingfee.ParkingFee;
 import ParkingLot.strategy.spotfinder.SpotFinder;
 import ParkingLot.observer.publisher.Publisher;
-import ParkingLot.observer.subscriber.SubscriberInterface;
+import ParkingLot.observer.subscriber.ChannelInterface;
 
-public class ParkingLotManager {
+public class ParkingLotManager implements Publisher{
+
+
+
+    // for observer pattern for notification
+    List<Subscriber> subscribers;
+
+
 
 
 
@@ -44,8 +50,8 @@ public class ParkingLotManager {
     Map<Integer , User> listOfUser ;
 
 
-    // settign the observer pattern for notification
-    Publisher publisher;
+
+
 
  
     // ignore these getter and setters for now as we kept all public for simplicity
@@ -82,7 +88,7 @@ public class ParkingLotManager {
         this.floors = new HashMap<>();
         this.tickets = new HashMap<>();
         this.listOfUser = new HashMap<>();
-        this.publisher = new Publisher();
+        this.subscribers = new ArrayList<>();
     }
 
     public static ParkingLotManager getInstance() {
@@ -100,20 +106,37 @@ public class ParkingLotManager {
     }
 
 
+    // for adding users preferred channel
 
+
+
+    // for the user notification subscription
+    @Override
+    public void subscribe( Subscriber subscriber)
+    {
+        // add the user to list of user if not present
+        subscribers.add( subscriber );
+    }
+
+    @Override
+    public void unsubscribe(Subscriber subscriber) {
+        subscribers.remove( subscriber );
+    }
+
+    @Override
+    public void notifySubscribers(User user, String message) {
+
+        // if we need to update any specific news to all subscribers
+        // we would use a for loo[p to notify all subscribers
+
+        // but here we need to notify only specific user via his preferred channels
+        user.update( message );
+    }
 
 
 
 
      // utility functions
-
-
-    // for the user notification subscription
-    public void subscribe( SubscriberInterface subscriber)
-    {
-        // add the user to list of user if not present
-        publisher.subscribe( subscriber );
-    }
 
     // creating ticket for parking
     public Ticket purchaseParkingPass( User user , Vehicle vehicle )
@@ -145,7 +168,7 @@ public class ParkingLotManager {
         spot.assignVehicle(user.vehicle); // correct
 
         // observer pattern notification
-        publisher.notifySubscribers(user, "Tring tring !! you vehicle is parked at : " + spot.spotId);
+        notifySubscribers(user, "Tring tring !! you vehicle is parked at : " + spot.spotId);
 
     }
    
@@ -164,7 +187,7 @@ public class ParkingLotManager {
         Double amount = parkingFeeStrategy.calc(  ticket.vehicle.vehicleType , duration  );
 
         // notify user about unparking
-        publisher.notifySubscribers(ticket.user, "Tring tring !! your vehicle is unparked. Please pay : " + amount);
+        notifySubscribers(ticket.user, "Tring tring !! your vehicle is unparked. Please pay : " + amount);
 
         return amount;
 

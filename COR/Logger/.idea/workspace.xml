@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28d55dd6-600e-4d44-9c30-462796462f3d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoggerCORInterface.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/cor/tax_strategy/CGST.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/cor/tax_strategy/StateTax.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/cor/tax_strategy/Tax.java" afterDir="false" />
@@ -22,9 +28,16 @@
       <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/strategy/payment_strategy/CreditCard.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/strategy/payment_strategy/DebitCard.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../LLD_Questions/Amazon_Cart_System/strategy/payment_strategy/PaymentStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvancedLogger/ERRORLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvancedLogger/INFOLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvancedLogger/LogEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvancedLogger/LoggerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvancedLogger/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvancedLogger/WARNLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvancedLogger/requirement.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ERRORLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/ERRORLogger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/INFOLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/INFOLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoggerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/LoggerCORInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoggerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/LoggerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WARNLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/WARNLogger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../LLD_Questions/Amazon/AmazonUI.java" beforeDir="false" />
@@ -41,19 +54,30 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="379XBf8GlUIncDHGeelh7wpAPcU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",

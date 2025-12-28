@@ -1,12 +1,12 @@
 package COR.Logger;
 
-public class WARNLogger implements LoggerManager {
+public class WARNLogger implements LoggerCORInterface {
 
-    LoggerManager next = null ;     // this is doing the chaining to the next logger manager
+    LoggerCORInterface next = null ;     // this is doing the chaining to the next logger manager
 
-    WARNLogger( LoggerManager loggerManager)
+    WARNLogger( LoggerCORInterface loggerCORInterface)
     {
-        this.next = loggerManager;
+        this.next = loggerCORInterface;
     }
 
     public void print( LogEnum logEnum , String message )

@@ -1,14 +1,14 @@
 package StatePattern.VendingMachin.states;
 
-import StatePattern.VendingMachin.VendingMachineContext;
+import StatePattern.VendingMachin.VendingMachine;
 
 public class StateFactory {
 
     // this class contains the initialization of the states 
 
-    VendingMachineContext vc;
+    VendingMachine vc;
 
-    public StateFactory( VendingMachineContext vc )
+    public StateFactory( VendingMachine vc )
     {
         this.vc = vc;
     }

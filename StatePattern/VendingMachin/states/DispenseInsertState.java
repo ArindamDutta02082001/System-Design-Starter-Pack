@@ -1,50 +1,52 @@
 package StatePattern.VendingMachin.states;
 
-import StatePattern.VendingMachin.VendingMachineContext;
-import StatePattern.VendingMachin.inventory.Product;
+import StatePattern.VendingMachin.VendingMachine;
+import StatePattern.VendingMachin.entity.Product;
 
 public class DispenseInsertState implements States {
 
-    public DispenseInsertState( VendingMachineContext vendingMachineContext )
+    VendingMachine vendingMachine;
+
+    public DispenseInsertState( VendingMachine vendingMachine)
     {
-        
+        this.vendingMachine =vendingMachine;
     }
 
     @Override
-    public void insertCoin( VendingMachineContext vendingMachineContext , int amount )
+    public void insertCoin(int amount )
     {
         System.out.println(" Item Dispensing...... !!");
     }
     
     @Override
-    public void pressButton( VendingMachineContext vendingMachineContext , String buttonNumber)
+    public void pressButton(String buttonNumber)
     {
         System.out.println(" Item Dispensing...... !!");
     }
     
     
     @Override
-    public void dispenseItem( VendingMachineContext vendingMachineContext)
+    public void dispenseItem()
     {
         System.out.println(" Item Dispensing...... !!");
 
-        // after dispensing the item we need to update the inventory
+        // after dispensing the item we need to update the VMOneInventory
 
         // now we already have the selected product
-        Product sp = vendingMachineContext.selectedProduct;
-        String buttonCode = vendingMachineContext.pressedButton;
+        Product sp = vendingMachine.selectedProduct;
+        String buttonCode = vendingMachine.pressedButton;
 
-        if( sp.quantity > 0 && sp.price <= vendingMachineContext.balance)
+        if( sp.quantity > 0 && sp.price <= vendingMachine.balance)
         {
-            vendingMachineContext.balance -= sp.price;
-            vendingMachineContext.inventory.updateProductQty(buttonCode, sp.quantity-1);
+            vendingMachine.balance -= sp.price;
+            vendingMachine.updateProductQty(buttonCode, sp.quantity-1);
             System.out.println("Item is dispatched , please collect !!");
         }
         else if( sp.quantity <=0)
         System.out.println("The machine quantity is not enough !!");
         else 
         {
-            System.out.println("Insufficient funds : avaliable : "+vendingMachineContext.balance+" required : "+sp.price );
+            System.out.println("Insufficient funds : avaliable : "+ vendingMachine.balance+" required : "+sp.price );
 
         }
 

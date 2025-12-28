@@ -1,15 +1,15 @@
 package COR.AdvancedLogger;
 
-public class ERRORLogger implements LoggerManager {
+public class ERRORLogger implements LoggerCORInterface {
    
-    LoggerManager next = null ;     // this is doing the chaining to the next logger manager
+    LoggerCORInterface next = null ;     // this is doing the chaining to the next logger manager
     
-    ERRORLogger( LoggerManager loggerManager)
+    ERRORLogger( LoggerCORInterface loggerCORInterface)
     {
-        this.next = loggerManager;
+        this.next = loggerCORInterface;
     }
 
-    public void print( LogEnum logEnum , String message )
+    public void print(LogEnum logEnum , String message )
     {
         if( logEnum == LogEnum.ERROR)
             System.out.println( "[ERROR] "+message);

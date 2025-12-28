@@ -1,14 +1,15 @@
 package COR.AdvancedLogger;
-public class INFOLogger implements LoggerManager {
 
-    LoggerManager next = null ;     // this is doing the chaining to the next logger manager
+public class INFOLogger implements LoggerCORInterface {
 
-    INFOLogger( LoggerManager loggerManager)
+    LoggerCORInterface next = null ;     // this is doing the chaining to the next logger manager
+
+    INFOLogger( LoggerCORInterface loggerCORInterface)
     {
-        this.next = loggerManager;
+        this.next = loggerCORInterface;
     }
 
-    public void print( LogEnum logEnum , String message )
+    public void print(LogEnum logEnum , String message )
     {
         if( logEnum == LogEnum.INFO)
             System.out.println( "[INFO] "+message);
