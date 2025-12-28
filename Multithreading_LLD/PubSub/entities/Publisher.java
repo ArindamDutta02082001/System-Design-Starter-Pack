@@ -3,32 +3,30 @@ package ObserverPattern.PubSub.entities;
 import java.time.Instant;
 import java.util.*;
 
-import ObserverPattern.PubSub.observer.publisher.Subject;
+import ObserverPattern.PubSub.PubSubManager;
+import ObserverPattern.PubSub.entities.enums.TOPIC_ENUM;
 
 public class  Publisher {
 
-    // list of topics
-    List<Topic> topicList = new ArrayList<>();
 
-    // **vvi identify the subject properly
-    // List of observers --> No , it is said each topic should have own subscribers
-    // "Subscribers should be able to subscribe to topics of interest and receive messages published to those topics"
-    // so instead of storing the subs here we have to store in topic as topic is the subject
+    PubSubManager pubSubManager;
+    public Publisher(PubSubManager pubSubManager)
+    {
+        this.pubSubManager = pubSubManager;
+    }
 
-    //  List<Observerr> subscriberList;
 
     // publisher fn
-    public void publishToTopic( TopicEnum topicEnum , String message )
+    public void publishToTopic(TOPIC_ENUM TOPICENUM, String message )
     {
         // forming the MessageDto
         MessageDto newMessageDto = new MessageDto(message, Instant.now());
 
-        for( Topic t : topicList )
+        for( TOPIC_ENUM t : pubSubManager.topicMap.keySet() )
         {
-            if(t.topicEnum.equals(topicEnum) )            {
-                t.addMessageToTopic(newMessageDto);  // add message + trigger notifyObserver
-                System.out.println(topicEnum+" "+message+" published");
-
+            if(t.equals(TOPICENUM) )            {
+                pubSubManager.getTopic(TOPICENUM).addMessageToTopic(newMessageDto);  // add message + trigger notifyObserver
+                System.out.println(TOPICENUM +" "+message+" published");
                 return;
             }
         }
@@ -36,11 +34,7 @@ public class  Publisher {
 
     }
 
-    // adding topic 
-    public void addTopicInPublisher( Topic topic)
-    {
-        topicList.add(topic);
-    }
+
 
 
 

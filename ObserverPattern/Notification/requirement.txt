@@ -4,7 +4,7 @@ Naman Sharma youtube
 
 1. Users: - done
 The system should support users, each identified by a unique user name/ID - done
-Users can subscribe to different types of notifications and manage their notification channel preferences.
+Users can subscribe to different types of notifications and manage their notification channel preferences - done
 
 2. Notification Channels: - done
 The system should support multiple notification channels, such as email, SMS, push notifications, and in-app notifications.

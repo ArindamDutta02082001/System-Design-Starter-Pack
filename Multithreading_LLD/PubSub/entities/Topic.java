@@ -1,7 +1,6 @@
 package ObserverPattern.PubSub.entities;
 
-import ObserverPattern.PubSub.observer.publisher.Subject;
-import ObserverPattern.PubSub.observer.subscriber.Observerr;
+import ObserverPattern.PubSub.entities.enums.TOPIC_ENUM;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,25 +8,22 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-public class Topic  implements Subject  {
+public class Topic  {
 
 
-    public TopicEnum topicEnum;
-
-
+    public TOPIC_ENUM TOPICENUM;
 
     // list of subscribers
-    List<Observerr> subscriberList;
+    List<Subscriber> subscriberList;
 
-    // to store the messages per Topic  , for no loss of messages
-    // a  topic is just a queue
-    List<MessageDto> messageList;
-    Map<Observerr,Integer> subscriberOffset;
+    List<MessageDto> messageList; // to store the messages per Topic  , for no loss of messages
+    Map<Subscriber,Integer> subscriberOffset;
 
-    public Topic( TopicEnum topicEnum)
+    public Topic( TOPIC_ENUM TOPICENUM)
     {
-        this.topicEnum = topicEnum;
+        this.TOPICENUM = TOPICENUM;
         // queue = new ConcurrentLinkedQueue<>();
+        this.messageList = new ArrayList<>();
         subscriberList = new ArrayList<>();
         subscriberOffset = new ConcurrentHashMap<>();
     }
@@ -36,45 +32,61 @@ public class Topic  implements Subject  {
 
     // subscribe and unsubscribe from a topic
 
-    @Override
-    public void registerObserver( Observerr s)
+    public void registerSubscriber( Subscriber s)
     {
         subscriberList.add(s);
         subscriberOffset.put(s,0);
-        System.out.println(s.name+ " Subscribed to : "+topicEnum.toString());
+        System.out.println(s.name+ " Subscribed to : "+ TOPICENUM.toString());
     }
 
-    @Override
-    public void unregisterObserver( Observerr s)
+
+    public void unregisterSubscriber( Subscriber s)
     {
         subscriberList.remove(s);
         subscriberOffset.remove(s);
-        System.out.println(s.name+ " Unsubscribed to : "+topicEnum.toString());
+        System.out.println(s.name+ " Unsubscribed to : "+ TOPICENUM.toString());
     }
 
 
     // THIS DONT HAPPEN in PUB-SUB , in pub sub no publisher calls update
     // instead subscriber polls
-
+//
 //    @Override
-    public void  notifyObservers( MessageDto message )
-    {
+//    public void  notifyObservers( MessageDto message )
+//    {
 //        for( Observerr s : subscriberList )  {
-//            s.update(message, topicEnum);
+//            s.update(message, TOPICENUM);
 //        }
+//    }
+
+    public MessageDto poll(Subscriber subscriber) {
+        int offset = subscriberOffset.get(subscriber);
+
+        if (offset >= messageList.size()) {
+            return null;
+        }
+
+        MessageDto msg = messageList.get(offset);
+        subscriberOffset.put(subscriber, offset + 1);
+        return msg;
     }
+
+
+    public int getOffset( Subscriber subscriber) {
+        return subscriberOffset.get(subscriber);
+    }
+
 
     public void addMessageToTopic( MessageDto messageDto )
     {
         messageList.add(messageDto);
-//        notifyObservers(messageDto);
     }
 
     // additional functionality to replay message
-    public void replay(Observerr observerr , Integer offset )
+    public void replay(Subscriber observerr , Integer offset )
     {
         for( MessageDto m : messageList.subList(offset,messageList.size()) )
-            System.out.println("[REPLAYED] - "+observerr.name+" - "+m.messageString );
+            System.out.println("[REPLAYED] - "+observerr.name+" - message : "+m.messageString );
     }
 
     

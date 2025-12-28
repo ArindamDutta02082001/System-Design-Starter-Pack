@@ -41,6 +41,9 @@ public class Main {
 		Subscriber s2 = new Subscriber("Modi Bhai" , "modi@email.com" , "12398765437" );
 		s2.addChannel(ch3);
 
+		// we can add preerred message type per subscriber
+		// paused for now
+
 		// creating publisher
 
 		Publisher p1 = new Publisher();

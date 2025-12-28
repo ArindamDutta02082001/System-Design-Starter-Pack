@@ -1,25 +1,67 @@
 package ObserverPattern.PubSub.entities;
 
-import ObserverPattern.PubSub.entities.MessageDto;
-import ObserverPattern.PubSub.observer.subscriber.Observerr;
+public class Subscriber implements Runnable{
 
-import java.util.Observer;
 
-public class Subscriber extends Observerr {
+    public Topic topic;        // to store which topic this is subscribed to
+    public String name;
 
-    public Subscriber( String name )
+    public int offset=0;
+
+    public Subscriber( String name , Topic topic)
     {
-        super(name);
+        this.name = name;
+        this.topic = topic;
     }
 
     // update fn
 
     @Override
-    public void update(MessageDto message , TopicEnum topicEnum )
-    {
-        System.out.println( "[INCOMING] "+" - "+this.name+" - "+topicEnum.toString()+" - "+message.messageString+" timestamp : "+message.timeStamp.toString());
+    public synchronized void run() {
+
+        // polling logic inside Subscriber thread run()
+
+        while( true )
+        {
+            if( offset > topic.getOffset(this) )
+            {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                    Thread.currentThread().interrupt();
+//                    return;
+                }
+            }
+
+            // poll mar ek mssg le
+
+            // we can use observer to send notification based on channel here printing
+            MessageDto mssg = topic.poll(this );
+            if(mssg != null)
+            {
+                System.out.println("[INCOMING] - "+this.name+" - topic - "+topic.TOPICENUM+" - mssg : "+mssg.messageString);
+                this.offset++;
+            }
+
+        }
+
+
     }
 
 
+    // another easy impleemntation via schedulaed service
+    public void run2() {
 
+            // poll mar ek mssg le
+
+            // we can use observer to send notification based on channel here printing
+            MessageDto mssg = topic.poll(this );
+            if(mssg != null)
+            {
+                System.out.println("[INCOMING] - "+this.name+" - topic - "+topic.TOPICENUM+" - mssg : "+mssg.messageString);
+                this.offset++;
+            }
+
+    }
 }
