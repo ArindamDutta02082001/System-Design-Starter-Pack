@@ -1,0 +1,54 @@
+
+// RESMED failed
+
+I want you to build a small backend system to manage Patients and their Medications.
+A Patient has basic details: Name, Age, Email.
+A Medication has details: Name, Dosage.
+
+Business Rule: One Patient can have multiple Medications assigned to them (One-to-Many).
+
+The Task: You need to design the database and implement REST APIs to:
+POST /patients - Create a new Patient.
+GET /patients - Fetch a list of all patients.
+POST /patients/{id}/medications - Assign a medication to an existing patient.
+GET /patients/{id} - Fetch patient details along with their list of medications.
+
+
+use demodb;
+CREATE TABLE Patient (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    age INT,
+    email VARCHAR(255)
+);
+
+CREATE TABLE Medication (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    dosage VARCHAR(50),
+    patient_id INT,
+    FOREIGN KEY (patient_id) REFERENCES Patient(id)
+);
+
+
+
+// for ref in future
+
+POST : http://localhost:9000/patients
+
+{
+    "name" : "Arindam Dutta2",
+    "age" : 24 ,
+    "email" : "arindutta@gmail.com"
+}
+
+GET : http://localhost:9000/patients
+GET : http://localhost:9000/patients/1  - get all medication of patient 1
+
+POST : http://localhost:9000/patients/1/medications   -- alloc medicine to patient 1
+
+{
+    "name" : "Paracetamol2" ,
+    "dosage" : "22 times a day"
+}
+
