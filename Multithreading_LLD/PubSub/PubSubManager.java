@@ -20,8 +20,7 @@ public class PubSubManager {
     {
         topicMap = new HashMap<>();
         executor = Executors.newCachedThreadPool();
-        scheduler =
-                Executors.newScheduledThreadPool(5);
+        scheduler = Executors.newScheduledThreadPool(5);
     }
 
     // get topi by TOPIC_ENUM

@@ -2,10 +2,7 @@
 
 Design pub-sub  Aryan Mittal
 
-    **vvi requirement is supporting multiple topics , multiple subs , multiple pubs
-
-
-    
+**vvi requirement is supporting multiple topics , multiple subs , multiple pubs
     The Pub-Sub system should allow publishers to publish messages to specific topics - done
     Subscribers should be able to subscribe to topics of interest and receive messages published to those topics - done
     The system should support multiple publishers and subscribers - done
@@ -17,12 +14,12 @@ Design pub-sub  Aryan Mittal
     of the messages , the subscriber will again start reading mssges from the offset)
 
     // Thread safety
-    Subscribers should run in parallel in our demo
-    The system should handle concurrent access and ensure thread safety.
-    The Pub-Sub system should be scalable and efficient in terms of message delivery.
+        Subscribers should run in parallel in our demo
+        The system should handle concurrent access and ensure thread safety.
+        The Pub-Sub system should be scalable and efficient in terms of message delivery.
 
 
     // vvi
-    dont build notification system when asked for pub-sub
-    instead create a polling mechanism + offset feature that consumer actually has
-    for now we are ignoring partitions inside topics , retry mechanism etc
+        dont build notification system when asked for pub-sub
+        instead create a polling mechanism + offset feature that consumer actually has
+        for now we are ignoring partitions inside topics , retry mechanism etc

@@ -49,15 +49,15 @@ public class Topic  {
 
 
     // THIS DONT HAPPEN in PUB-SUB , in pub sub no publisher calls update
-    // instead subscriber polls
-//
-//    @Override
-//    public void  notifyObservers( MessageDto message )
-//    {
-//        for( Observerr s : subscriberList )  {
-//            s.update(message, TOPICENUM);
-//        }
-//    }
+        // instead subscriber polls
+        //
+        //    @Override
+        //    public void  notifyObservers( MessageDto message )
+        //    {
+        //        for( Observerr s : subscriberList )  {
+        //            s.update(message, TOPICENUM);
+        //        }
+        //    }
 
     public MessageDto poll(Subscriber subscriber) {
         int offset = subscriberOffset.get(subscriber);
