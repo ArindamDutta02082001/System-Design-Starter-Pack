@@ -29,38 +29,76 @@ public class ImMemoryLockProvider implements ILockProvider{
 
     }
 
+//    @Override
+//    public void lockSeats(Show show, List<Seat> seat, User user)  {
+//
+//        // check if the show exist , if the seat is already locked by someone , if exired or not
+//
+//        if(!seatlocks.containsKey(show))
+//            seatlocks.put(show,new java.util.HashMap<>());
+//
+//        // get the seats of the show
+//        Map<Seat, SeatLock> seatLockMap = seatlocks.get(show);
+//
+//        synchronized (seatLockMap)  // synchronize on the seatLockMap for this show
+//        {
+//            for (Seat s : seat)  // iterate over the seats user wants to lock
+//            {
+//                if (seatLockMap.containsKey(s)) {
+//                    SeatLock currSeatLock = seatLockMap.get(s);
+//                    // check if lock is expired
+//                    if (currSeatLock.getLockExpiryTime().isAfter(LocalDateTime.now())) {
+//                        System.out.println("Seat " + s.getSeatNumber() + " is already locked for show " + show.getShowId());
+//                        return ;    // not allowing partial booking
+//                    } else {
+//                        // user should be allowed for partial booking
+//                        SeatLock newSeatLock = new SeatLock(show, s, user, java.time.LocalDateTime.now());
+//                        seatLockMap.put(s, newSeatLock);
+//                    }
+//
+//                }
+//            }
+//        }
+//
+//    }
+
     @Override
-    public void lockSeats(Show show, List<Seat> seat, User user)  {
+    public void lockSeats(Show show, List<Seat> seats, User user) {
 
-        // check if the show exist , if the seat is already locked by someone , if exired or not
+        seatlocks.putIfAbsent(show, new HashMap<>());
 
-        if(!seatlocks.containsKey(show))
-            seatlocks.put(show,new java.util.HashMap<>());
-
-        // get the seats of the show
         Map<Seat, SeatLock> seatLockMap = seatlocks.get(show);
 
-        synchronized (seatLockMap)  // synchronize on the seatLockMap for this show
-        {
-            for (Seat s : seat)  // iterate over the seats user wants to lock
-            {
-                if (seatLockMap.containsKey(s)) {
-                    SeatLock currSeatLock = seatLockMap.get(s);
-                    // check if lock is expired
-                    if (currSeatLock.getLockExpiryTime().isAfter(LocalDateTime.now())) {
-                        System.out.println("Seat " + s.getSeatNumber() + " is already locked for show " + show.getShowId());
-                        return ;    // not allowing partial booking
-                    } else {
-                        // user should be allowed for partial booking
-                        SeatLock newSeatLock = new SeatLock(show, s, user, java.time.LocalDateTime.now());
-                        seatLockMap.put(s, newSeatLock);
-                    }
+        synchronized (seatLockMap) {
 
+            // STEP 1: validate ALL seats first
+            for (Seat s : seats) {
+
+                SeatLock existing = seatLockMap.get(s);
+
+                if (existing != null &&
+                        existing.getLockExpiryTime().isAfter(LocalDateTime.now())) {
+
+                    throw new RuntimeException(
+                            "Seat " + s.getSeatNumber() + " already locked for show " + show.getShowId()
+                    );
                 }
             }
-        }
 
+            // STEP 2: lock them all
+            for (Seat s : seats) {
+                seatLockMap.put(s,
+                        new SeatLock(
+                                show,
+                                s,
+                                user,
+                                LocalDateTime.now().plusSeconds(30)   // TTL
+                        )
+                );
+            }
+        }
     }
+
 
     @Override
     public void unlockSeats(Show show, List<Seat> seat, User user) {

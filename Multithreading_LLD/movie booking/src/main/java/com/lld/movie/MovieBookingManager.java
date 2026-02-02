@@ -92,6 +92,7 @@ public class MovieBookingManager {
         for( Seat seat : seatsToBook )
         {
             seatManager.bookSeats(show , seat );
+            System.out.println("Successfully booked seat " + seat.getSeatId());
         }
 
         // release the locks

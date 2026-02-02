@@ -121,11 +121,6 @@ public class Main {
 		Runnable user2Task = ()->{
 			User user2 = new User(2 , "Blice" , "blice@mail.com");
 			bookingManager.createBooking(1 , List.of( s1.getSeatMap().get(4) , s1.getSeatMap().get(5) ) , user2 );
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
             bookingManager.confirmBooking(1 , List.of( s1.getSeatMap().get(4) , s1.getSeatMap().get(5) ) , user2 , new CreditCard() );
 		};
 

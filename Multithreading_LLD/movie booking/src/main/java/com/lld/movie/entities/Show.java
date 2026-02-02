@@ -29,18 +29,18 @@ public class Show {
         this.movie = movie;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Seat)) return false;
-        Show show = (Show) o;
-        return showId == show.showId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(showId);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (!(o instanceof Seat)) return false;
+//        Show show = (Show) o;
+//        return showId == show.showId;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(showId);
+//    }
 
 
 

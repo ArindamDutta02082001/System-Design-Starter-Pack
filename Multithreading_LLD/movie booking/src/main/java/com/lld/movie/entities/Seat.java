@@ -22,18 +22,18 @@ public class Seat {
     String seatNumber;
     SEAT_TYPE seatType;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Seat)) return false;
-        Seat seat = (Seat) o;
-        return seatId == seat.seatId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(seatId);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (!(o instanceof Seat)) return false;
+//        Seat seat = (Seat) o;
+//        return seatId == seat.seatId;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(seatId);
+//    }
 
 
 }
