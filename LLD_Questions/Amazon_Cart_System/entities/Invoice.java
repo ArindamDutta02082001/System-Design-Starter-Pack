@@ -1,7 +1,5 @@
 package entities;
 
-import java.util.UUID;
-
 
 // just to return the invoice after order is placed
 

@@ -1,6 +1,5 @@
 package repository;
 
-import entities.CartItem;
 import entities.Product;
 
 import java.util.ArrayList;

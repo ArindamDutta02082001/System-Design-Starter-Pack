@@ -12,6 +12,7 @@ public abstract class Obstacle {
         {
             throw new IllegalArgumentException(" Invalid start or end for Obstacle ");
         }
+        
         this.start = start;
         this.end = end;
     }

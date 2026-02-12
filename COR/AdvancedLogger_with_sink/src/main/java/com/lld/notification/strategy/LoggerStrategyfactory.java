@@ -1,24 +1,24 @@
-package com.lld.notification.factory;
+package com.lld.notification.strategy;
 
+import com.lld.notification.entities.enums.LOGGER_TYPE;
 import com.lld.notification.entities.enums.LOG_LEVEL;
 import com.lld.notification.entities.enums.SINK_TYPE;
+import com.lld.notification.factory.DBSink;
+import com.lld.notification.factory.FileSink;
+import com.lld.notification.factory.Sink;
+import com.lld.notification.factory.StdoutSink;
 
-public class Sinkfactory {
+import java.util.List;
 
-    public static Sink getSink(SINK_TYPE sinkType , LOG_LEVEL log_level )
+public class LoggerStrategyfactory {
+
+    public static LogStrategy getStrategy(LOGGER_TYPE loggerType , List<Sink> sinkList)
     {
-        switch (sinkType)
-        {
-            case FILE:
-                return new FileSink(log_level , sinkType);
-            case DB:
-                return new DBSink(log_level , sinkType);
-            case STDOUT :
-                return new StdoutSink(log_level , sinkType);
-            default:
-                return null;
-
-        }
+        return switch (loggerType) {
+            case ASYNC -> new AsyncLogStrategy(sinkList, 2);
+            case SYNC -> new SyncLogStrategy(sinkList);
+            default -> null;
+        };
 
     }
 }

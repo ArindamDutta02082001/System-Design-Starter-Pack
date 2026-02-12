@@ -1,2 +1,5 @@
-package com.lld.notification.entities.enums;public interface LOGGER_TYPE {
+package com.lld.notification.entities.enums;
+
+public enum LOGGER_TYPE {
+    SYNC , ASYNC
 }
