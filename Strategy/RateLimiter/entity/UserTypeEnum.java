@@ -1,6 +1,6 @@
 package Strategy.RateLimiter.entity;
 
-public enum UserEnum {
+public enum UserTypeEnum {
     PREMIUM,
     FREE
 }

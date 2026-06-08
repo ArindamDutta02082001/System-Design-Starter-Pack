@@ -5,23 +5,25 @@ Idea:
 ![img.png](images/img.png)
 
 **Components : Bucket , Token**
-- map of <userid ,maxtokenPeruserId> , maxToken , refillRate ,  Map<String, LocalDateTime> lastRefilled;
 
-**Working**
-- A bucket stores tokens , Tokens refill at a fixed rate (like a leaky tap)
+- A bucket stores tokens , Tokens refill at a fixed rate (leaky tap)
+
 - Requests consume tokens
+
 - If bucket empty → reject
 
 Pros:
 
 Handles brust trafic , Very efficient , majorly used in industry
+
 > Handling burst means: Being able to serve many requests instantly if capacity allows
+
 
 Used by: AWS, Google Cloud, Nginx
 
 Cons:
+
 Slightly more complex as you have to select 2 params : bucket size and refill rate of bucket
-also , a sudden inc in burst traffic can cause a sudden inc in memory usage of app.
 
 
 

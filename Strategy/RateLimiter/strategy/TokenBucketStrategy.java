@@ -10,36 +10,38 @@ public class TokenBucketStrategy implements RateLimiterStrategy{
 
     double refillRate;  // tokens/s should be refilled
 
-    int maxTokenPerUser;
-    Map<String , Integer> tokens;
+    Map<String , Integer> tokensPerUserId;
 
     Map<String, LocalDateTime> lastRefilled;
 
+    Integer maxTokenPerUser;
 
-    public TokenBucketStrategy(  int token , double refillRate  )
+
+    public TokenBucketStrategy(  Map<String , Integer> tokensPerUserId, double refillRate , Integer maxTokenPerUser )
     {
         this.refillRate =refillRate;
-        this.maxTokenPerUser=token;
-        tokens = new HashMap<>();
-        lastRefilled = new HashMap<>();
+        this.tokensPerUserId = tokensPerUserId;
+        this.lastRefilled = new HashMap<>();
+        this.maxTokenPerUser = maxTokenPerUser;
     }
+
     public boolean allowRequest( String userId)
     {
-        LocalDateTime curr = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.now();
 
         // setting the hashmaps if userid new
-        tokens.putIfAbsent(userId,maxTokenPerUser);
-        lastRefilled.putIfAbsent(userId,curr);
+        lastRefilled.putIfAbsent(userId,now);
 
-        // before token consumption , refill
-        double elapsedTime = Duration.between(lastRefilled.get(userId) ,curr ).toSeconds();
-        int oldTokens = tokens.get(userId);
-        tokens.put(userId , Math.min(maxTokenPerUser , oldTokens+(int)(elapsedTime*refillRate) ) );
+        // before token consumption , refill based on the refill rate * elaspedtime
+        double elapsedTime = Duration.between(lastRefilled.get(userId) ,now ).toSeconds();
+        int oldTokens = tokensPerUserId.get(userId);
+
+        tokensPerUserId.put(userId , Math.min(maxTokenPerUser , oldTokens+(int)(elapsedTime*refillRate) ) );
         lastRefilled.put(userId , LocalDateTime.now());
 
-        if(tokens.get(userId) >0 )
+        if(tokensPerUserId.get(userId) >0 )
         {
-            tokens.put(userId , tokens.get(userId)-1);
+            tokensPerUserId.put(userId , tokensPerUserId.get(userId)-1);
             return true;
         }
 

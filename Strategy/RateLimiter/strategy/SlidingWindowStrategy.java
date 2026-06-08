@@ -30,18 +30,18 @@ public class SlidingWindowStrategy implements RateLimiterStrategy {
 
         // check the req that is incoming at this timestamp , is smaller than the
         // top timestamp of the deque of the user
-        LocalDateTime currTime = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.now();
 
         Deque<LocalDateTime> dq = reqCount.get(userId);
 
-        while( !dq.isEmpty() && Duration.between( dq.peek(),currTime ).toMillis() > windowSizems )
+        while( !dq.isEmpty() && Duration.between( dq.peek(),now ).toMillis() > windowSizems )
         {
             dq.poll();
         }
 
         if(dq.size() < maxReq )
         {
-            dq.add(currTime);
+            dq.add(now);
             return true;
         }
 

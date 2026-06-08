@@ -2,11 +2,11 @@ package Strategy.RateLimiter.entity;
 
 public class User {
     public String userId;
-    public UserEnum userEnum;
+    public UserTypeEnum userTypeEnum;
 
-    public User( String id , UserEnum userEnum )
+    public User( String id , UserTypeEnum userTypeEnum)
     {
-        this.userEnum=userEnum;
+        this.userTypeEnum = userTypeEnum;
         this.userId=id;
     }
 }

@@ -31,8 +31,8 @@ public class FixedWindowStrategy implements RateLimiterStrategy {
 
         //  check the time window if it is < windowSizeinms (fixed window)
 
-        LocalDateTime currTime = LocalDateTime.now();
-        if( Duration.between(windowStartTime ,currTime).toMillis() > windowSizeinms )
+        LocalDateTime now = LocalDateTime.now();
+        if( Duration.between(windowStartTime ,now).toMillis() > windowSizeinms )
         {
             requestCounts.remove(userId);
             windowStartTime = LocalDateTime.now();

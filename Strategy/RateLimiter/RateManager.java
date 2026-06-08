@@ -14,13 +14,13 @@ public class RateManager {
 
     public void registerUser(User u)
     {
-        mp.put(u.userId , StrategyFactory.getRateLimitingStartefy(u.userEnum));
+        mp.put(u.userId , StrategyFactory.getRateLimitingStartefy(u.userTypeEnum));
     }
 
     //
-    public boolean hit( String id )
+    public boolean hit( String userId )
     {
-        return mp.get(id).allowRequest(id);
+        return mp.get(userId).allowRequest(userId);
     }
 
 }
