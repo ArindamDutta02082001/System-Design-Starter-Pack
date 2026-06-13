@@ -1,6 +1,6 @@
 package GamesLLD.TicTacToe.entity.Player;
 
-import GamesLLD.TicTacToe.Board;
+import GamesLLD.TicTacToe.entity.Board;
 
 import java.util.Random;
 

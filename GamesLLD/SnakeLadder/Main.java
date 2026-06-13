@@ -1,5 +1,6 @@
 package GamesLLD.SnakeLadder;
 
+import GamesLLD.SnakeLadder.entity.Board;
 import GamesLLD.SnakeLadder.entity.Obstacle.LadderObstacle;
 import GamesLLD.SnakeLadder.entity.Obstacle.SnakeObstacle;
 import GamesLLD.SnakeLadder.entity.Player.*;
@@ -34,21 +35,33 @@ public class Main {
         LadderObstacle l2 = new LadderObstacle(5,8);
         LadderObstacle l3 = new LadderObstacle(20,29);
 
-        Board board = new Board(new ArrayDeque<>(List.of(p1,p2,p3)) ,
+        Board board = new Board(
                 List.of(s1,s2,s3) ,
                 List.of(l1,l2,l3)
         );
 
-        // game simulation
-        while(!board.isGameOver)
-            board.play();
+        // action : game simulation
 
+        // default strategy is round-robin
+        Deque<Player> players = new ArrayDeque<>(List.of(p1,p2,p3));
 
+        while(true) {
 
+                // nikalo
+                Player p = players.poll();
 
+                // play the game
+                board.makeMove(p);
 
+                if( board.isGameOver )
+                {
+                    System.out.println("Game Over!");
+                    break;
+                }
 
+                // put back
+                players.add(p);
+            }
+        }
 
-
-    }
 }

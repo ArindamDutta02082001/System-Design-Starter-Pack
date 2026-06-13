@@ -1,9 +1,9 @@
 package GamesLLD.TicTacToe.strategy;
 
-import GamesLLD.TicTacToe.Board;
+import GamesLLD.TicTacToe.entity.Board;
 import GamesLLD.TicTacToe.entity.Player.Player;
 
-public class DiagonalWinningStrategy implements WinningStrategy {
+public class DiagonalWinningStrategy implements IWinningStrategy {
 
     @Override
     public boolean checkWin(Board board , Player p) {
